@@ -1,0 +1,4 @@
+configurar credenciales
+
+$ git config --global user.name "jhon"
+$ git config --global user.name"ss"
