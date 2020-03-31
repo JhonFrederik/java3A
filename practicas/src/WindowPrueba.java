@@ -48,7 +48,19 @@ public class WindowPrueba extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        n1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n1ActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("ingrese el segundo numero:");
+
+        n2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel2.setText("Ingrese el primer numero:");
@@ -220,6 +232,15 @@ public class WindowPrueba extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnSumarActionPerformed
+
+    private void n1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_n1ActionPerformed
+
+    private void n2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_n2ActionPerformed
 
     /**
      * @param args the command line arguments
