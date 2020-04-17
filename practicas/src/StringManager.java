@@ -12,14 +12,37 @@ import java.util.HashSet;
  * @author Hp
  */
 public class StringManager extends javax.swing.JFrame {
-
+    int lInicial;
+    char letrainicial = ' ';
+    String l= "";
     /**
      * Creates new form StringManager
      */
     public StringManager() {
         initComponents();
+        setLocationRelativeTo(null);
     }
-
+public String characters (String parametro){
+        for (int i=0;i<parametro.length();i++){
+           letrainicial=parametro.charAt(i);
+           if(i==0){
+             letrainicial=Character.toUpperCase(letrainicial);  
+           }
+           if(i>=1){
+             letrainicial=Character.toLowerCase(letrainicial);  
+           }
+           if(letrainicial==' '){             
+             lInicial=i+1;
+             letrainicial=Character.toLowerCase(letrainicial);
+           }
+           if(lInicial==i){
+             letrainicial=Character.toUpperCase(letrainicial);
+             
+           }
+           l+=letrainicial;
+        }
+        return l;      
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,9 +58,26 @@ public class StringManager extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         btnShow = new javax.swing.JButton();
         btnreset = new javax.swing.JButton();
-        btnSpanish = new javax.swing.JButton();
         btnEnglish = new javax.swing.JButton();
+        btnEspañol = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        nombreMay = new javax.swing.JLabel();
+        nombreMin = new javax.swing.JLabel();
+        inicialMay = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        tBuscar = new javax.swing.JTextField();
+        interrogacion = new javax.swing.JLabel();
+        btnmin = new javax.swing.JButton();
+        btnmay = new javax.swing.JButton();
+        buscar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        tCharacters = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -52,39 +92,57 @@ public class StringManager extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("String Manager");
+        setBackground(new java.awt.Color(204, 255, 255));
         setResizable(false);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setPreferredSize(new java.awt.Dimension(480, 278));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setText("Your name");
 
         txtName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
 
-        btnShow.setBackground(new java.awt.Color(153, 153, 153));
+        btnShow.setBackground(new java.awt.Color(255, 153, 51));
         btnShow.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnShow.setForeground(new java.awt.Color(0, 255, 204));
         btnShow.setText("Show");
+        btnShow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowActionPerformed(evt);
             }
         });
 
-        btnreset.setBackground(new java.awt.Color(51, 51, 0));
+        btnreset.setBackground(new java.awt.Color(204, 255, 51));
         btnreset.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnreset.setForeground(new java.awt.Color(0, 255, 51));
         btnreset.setText("Reset");
+        btnreset.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 51)));
         btnreset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnresetActionPerformed(evt);
             }
         });
 
-        btnSpanish.setText("Spanish");
-        btnSpanish.setEnabled(false);
-
         btnEnglish.setText("English");
+        btnEnglish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnglishActionPerformed(evt);
+            }
+        });
+
+        btnEspañol.setText("espanish");
+        btnEspañol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEspañolActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,16 +151,16 @@ public class StringManager extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtName)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(64, 64, 64)
-                        .addComponent(btnSpanish)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnEspañol)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEnglish))
+                    .addComponent(txtName)
                     .addComponent(btnShow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnreset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,28 +169,150 @@ public class StringManager extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSpanish)
-                        .addComponent(btnEnglish)))
+                        .addComponent(btnEnglish)
+                        .addComponent(btnEspañol)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnShow)
                 .addGap(18, 18, 18)
                 .addComponent(btnreset)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("information"));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(102, 102, 255))); // NOI18N
+        jPanel3.setAutoscrolls(true);
+
+        jLabel2.setText("Your name is:");
+
+        jLabel3.setText("Your name in May:");
+
+        jLabel4.setText("Your name in MIn:");
+
+        jLabel5.setText("Total characters:");
+
+        nombre.setText(":");
+        nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 51)));
+
+        nombreMay.setText(":");
+        nombreMay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 255, 102)));
+
+        nombreMin.setText(":");
+        nombreMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 255, 153)));
+
+        inicialMay.setText(":");
+        inicialMay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 255)));
+
+        jLabel9.setText("Letter flinder");
+
+        jLabel11.setText("Type a number");
+
+        interrogacion.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        interrogacion.setText("?");
+
+        btnmin.setText("Min");
+
+        btnmay.setText("May");
+
+        buscar.setText("Search");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Initial capital letters");
+
+        tCharacters.setText(":");
+        tCharacters.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 204, 255)));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(tBuscar, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(buscar))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(interrogacion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnmin, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btnmay, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(97, 97, 97)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(nombreMay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                            .addComponent(nombreMin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(inicialMay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(tCharacters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addGap(50, 50, 50))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 125, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(nombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(nombreMay))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(nombreMin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(inicialMay))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tCharacters))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(interrogacion)
+                            .addGap(33, 33, 33))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(btnmin)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnmay)
+                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(tBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buscar)
+                        .addGap(25, 25, 25))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,20 +320,22 @@ public class StringManager extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,8 +344,35 @@ public class StringManager extends javax.swing.JFrame {
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         // TODO add your handling code here:
         // code show the username by console:
-        String yName = txtName.getText();
-        System.out.println("your name is: " + yName);
+         String yName = txtName.getText();
+        if (!txtName.getText().isEmpty()){
+            
+        nombre.setText(yName);
+        
+        nombreMay.setText(yName.toUpperCase());
+
+        nombreMin.setText(yName.toLowerCase());
+
+        int n = txtName.getText().length();
+        tCharacters.setText(String.valueOf(n));
+        
+        tCharacters.setText(yName);
+        inicialMay.setText(l);
+        
+        letrainicial = 0;
+        lInicial = ' ';
+        l= " ";     
+        }else{
+        nombre.setText("");
+        
+        nombreMay.setText("");;
+
+        nombreMin.setText("");
+
+        tCharacters.setText("");
+
+        inicialMay.setText("");    
+        }
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
@@ -171,6 +380,70 @@ public class StringManager extends javax.swing.JFrame {
         txtName.setText("");
         
     }//GEN-LAST:event_btnresetActionPerformed
+
+    private void btnEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspañolActionPerformed
+        // TODO add your handling code here:
+        setTitle("Administrador de cadenas");
+        jLabel1.setText("Tu nombre: ");
+        jLabel2.setText("Tu nombre es: ");
+        jLabel3.setText("Tu nombre en mayusculas es: ");
+        jLabel4.setText("Tu nombre en minusculas es: ");
+        jLabel5.setText("total caracteres: ");
+        jLabel9.setText("Tu nombre es: ");
+        buscar.setText("Buscar");
+        btnShow.setText("Mostrar");
+        btnreset.setText("resetear");
+        btnEnglish.setText("Ingles");
+        btnEspañol.setText("Español");
+        jLabel11.setText("escriba un numero");
+        jLabel6.setText("Letras mayusculas iniciales");
+        btnEnglish.setEnabled(true);
+        btnEspañol.setEnabled(false);
+    }//GEN-LAST:event_btnEspañolActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void btnEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnglishActionPerformed
+        // TODO add your handling code here:
+        setTitle("Administrador de cadenas");
+        jLabel1.setText("Your name: ");
+        jLabel2.setText("Your name is: ");
+        jLabel3.setText("Your name in May is: ");
+        jLabel4.setText("Your name in Min is: ");
+        jLabel5.setText("total characarters: ");
+        jLabel9.setText("your name is: ");
+        buscar.setText("Search");
+        btnShow.setText("Show");
+        btnreset.setText("Reset");
+        btnEnglish.setText("English");
+        btnEspañol.setText("Espanish");
+        jLabel11.setText("Type a number");
+        jLabel6.setText("initial capital letters");
+        btnEnglish.setEnabled(false);
+        btnEspañol.setEnabled(true);
+    }//GEN-LAST:event_btnEnglishActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+         String name = txtName.getText();
+        int num;
+        num =Integer.parseInt(tBuscar.getText());
+        char tBuscar= name.charAt(num-1);
+        interrogacion.setText(""+tBuscar);
+        if (Character.isLowerCase(tBuscar)){
+            btnmay.setEnabled(true);
+            btnmin.setEnabled(false);
+        }else if (Character.isUpperCase(tBuscar)){
+            btnmay.setEnabled(false);
+            btnmin.setEnabled(true);
+                    
+        }else{
+            btnmay.setEnabled(false);
+            btnmin.setEnabled(false);
+            }
+    }//GEN-LAST:event_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,13 +482,30 @@ public class StringManager extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnglish;
+    private javax.swing.JButton btnEspañol;
     private javax.swing.JButton btnShow;
-    private javax.swing.JButton btnSpanish;
+    private javax.swing.JButton btnmay;
+    private javax.swing.JButton btnmin;
     private javax.swing.JButton btnreset;
+    private javax.swing.JButton buscar;
+    private javax.swing.JLabel inicialMay;
+    private javax.swing.JLabel interrogacion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JLabel nombreMay;
+    private javax.swing.JLabel nombreMin;
+    private javax.swing.JTextField tBuscar;
+    private javax.swing.JLabel tCharacters;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
